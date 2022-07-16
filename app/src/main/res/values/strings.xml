@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">jRead</string>
+
+    <string name="login">Connexion</string>
+    <string name="register">S\'enregistrer</string>
+    <string name="password">Mot de passe</string>
+    <string name="password_placeholder">**********</string>
+    <string name="username">Nom d\'utilisateur</string>
+    <string name="username_placeholder">Ton nom d\'utilisateur</string>
+    <string name="email">Email</string>
+    <string name="email_placeholder">example@example.com</string>
+</resources>
