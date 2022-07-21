@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "931236335803",
+    "project_id": "jread-e3479",
+    "storage_bucket": "jread-e3479.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:931236335803:android:a6e510dea3f1098a4d599e",
+        "android_client_info": {
+          "package_name": "fr.jaetan.jread"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "931236335803-m8vu6ps5ol64v57j1npt1m41gpialima.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAU9JJddg12srtgusCwDpqIAxBTDZspq_g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "931236335803-m8vu6ps5ol64v57j1npt1m41gpialima.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
