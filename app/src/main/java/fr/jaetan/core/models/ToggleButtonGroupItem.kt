@@ -1,4 +1,4 @@
-package fr.jaetan.core
+package fr.jaetan.core.models
 
 data class ToggleButtonGroupItem<T>(
     val text: String,

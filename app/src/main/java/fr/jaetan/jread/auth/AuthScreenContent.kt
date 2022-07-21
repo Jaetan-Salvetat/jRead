@@ -8,7 +8,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import fr.jaetan.core.ToggleButtonGroupItem
+import fr.jaetan.core.models.ToggleButtonGroupItem
 import fr.jaetan.widgets.ToggleButtonGroup
 
 @Composable
@@ -70,7 +70,7 @@ fun AuthScreenContent(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 15.dp),
-            onClick = { /*TODO*/ }
+            onClick = {  }
         ) {
             Text(text = toggleButtonGroupOptions[toggleButtonGroupCurrentId].type.name)
         }

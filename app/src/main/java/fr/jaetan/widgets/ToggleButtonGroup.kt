@@ -7,12 +7,11 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import fr.jaetan.core.ToggleButtonGroupItem
+import fr.jaetan.core.models.ToggleButtonGroupItem
 import fr.jaetan.jread.ui.theme.LeftTopBottomShapeLarge
 import fr.jaetan.jread.ui.theme.NoShape
 import fr.jaetan.jread.ui.theme.RightTopBottomShapeLarge
