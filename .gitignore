@@ -25,3 +25,6 @@ local.properties
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+#firebase
+google-services.json
