@@ -1,6 +1,5 @@
 package fr.jaetan.jread.auth
 
-import android.util.Log
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.CircularProgressIndicator
@@ -21,7 +20,8 @@ fun AuthScreenContent(
     padding: PaddingValues,
     toggleButtonGroupOptions: List<ToggleButtonGroupItem<ToggleButtonAuthItem>>,
     toggleButtonGroupCurrentId: Int,
-    onChangeToggleButton: (Int) -> Unit
+    onChangeToggleButton: (Int) -> Unit,
+    goToHome: () -> Unit
 ) {
     var errorStatus by remember { mutableStateOf(FirebaseResponse.None) }
     var loading by remember { mutableStateOf(false) }
@@ -31,19 +31,23 @@ fun AuthScreenContent(
     var registerEmail by remember { mutableStateOf("") }
     var registerUsername by remember { mutableStateOf("") }
 
+
+    val authCallback = { res: FirebaseResponse ->
+        errorStatus = res
+        loading = false
+
+        if(res == FirebaseResponse.Success) {
+            goToHome()
+        }
+    }
+
     val auth = {
         loading = true
 
         if (toggleButtonGroupOptions[toggleButtonGroupCurrentId].type == ToggleButtonAuthItem.LogIn) {
-            AuthController.signIn(logInEmail, logInPassword) { res ->
-                errorStatus = res
-                loading = false
-            }
+            AuthController.signIn(logInEmail, logInPassword, authCallback)
         } else {
-            AuthController.register(registerEmail, registerPassword, registerUsername) { res ->
-                errorStatus = res
-                loading = false
-            }
+            AuthController.register(registerEmail, registerPassword, registerUsername, authCallback)
         }
     }
 
@@ -100,7 +104,8 @@ fun AuthScreenContent(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 15.dp),
-            onClick = auth
+            onClick = auth,
+            enabled = !loading
         ) {
             if (loading) {
                 CircularProgressIndicator(Modifier.size(25.dp))

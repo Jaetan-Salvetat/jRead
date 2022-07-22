@@ -1,15 +1,16 @@
 package fr.jaetan.jread
 
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
-import com.google.firebase.auth.FirebaseAuth
 import fr.jaetan.core.controllers.AuthController
 import fr.jaetan.jread.auth.AuthScreen
+import fr.jaetan.jread.home.HomeScreen
 
 @Composable
 fun App() {
@@ -24,29 +25,31 @@ fun App() {
         )
     }
 
-    Navigation()
+    NavigationComponent()
 }
 
 
 @Composable
-private fun Navigation() {
-    if(AuthController.isConnected) {
-        AlertDialog(
-            title = { Text(text = FirebaseAuth.getInstance().currentUser?.displayName ?: "") },
-            text = { Text(text = "You're connected") },
-            dismissButton = {
-                TextButton(
-                    onClick = {
-                        AuthController.signOut()
-                    }
-                ) {
-                    Text(text = "Sign out")
-                }
-            },
-            confirmButton = {},
-            onDismissRequest = { /*TODO*/ }
-        )
+private fun NavigationComponent() {
+    var isConnected by rememberSaveable { mutableStateOf(AuthController.isConnected) }
+
+    if(!isConnected) {
+        AuthScreen {
+            isConnected = true
+        }
+        return
     }
 
-    AuthScreen()
+    val navController = rememberNavController()
+
+    NavHost(
+        navController = navController,
+        startDestination = "home"
+    ) {
+        composable("home") {
+            HomeScreen {
+                isConnected = false
+            }
+        }
+    }
 }

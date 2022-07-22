@@ -5,13 +5,16 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.*
 import androidx.compose.ui.res.stringResource
+import androidx.navigation.NavHostController
 import fr.jaetan.core.models.ToggleButtonGroupItem
 import fr.jaetan.jread.R
 import fr.jaetan.widgets.TopAppBar
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AuthScreen() {
+fun AuthScreen(
+    goToHome: () -> Unit
+) {
     val toggleButtonGroupOptions = listOf(
         ToggleButtonGroupItem(
             text = stringResource(R.string.login),
@@ -42,7 +45,8 @@ fun AuthScreen() {
             padding = padding,
             toggleButtonGroupOptions = toggleButtonGroupOptions,
             toggleButtonGroupCurrentId = toggleButtonGroupCurrentId,
-            onChangeToggleButton = onChangeToggleButton
+            onChangeToggleButton = onChangeToggleButton,
+            goToHome = goToHome
         )
     }
 }

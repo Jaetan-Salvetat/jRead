@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">jRead</string>
 
+    <!-- Authentication -->
     <string name="login">Connexion</string>
     <string name="register">S\'enregistrer</string>
     <string name="password">Mot de passe</string>
@@ -27,4 +28,8 @@
           - Le mot de passe doit faire 6 caractères minimum.\n
           - Le nom d\'utilisateur doit faire 4 caractères minimum.
     </string>
+
+
+    <!-- Home -->
+    <string name="home_title">Accueil</string>
 </resources>
