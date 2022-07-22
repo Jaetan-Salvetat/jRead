@@ -10,7 +10,8 @@ enum class FirebaseResponse {
     BadEmail,
     BadEmailOrPassword,
     Error,
-    Success;
+    Success,
+    None;
 
 
     companion object {

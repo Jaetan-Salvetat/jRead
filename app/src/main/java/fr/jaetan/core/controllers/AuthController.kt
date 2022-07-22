@@ -1,12 +1,14 @@
 package fr.jaetan.core.controllers
 
+import android.util.Log
+import android.util.Patterns
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
 import fr.jaetan.core.enums.FirebaseResponse
 
 class AuthController {
     companion object {
-        val auth: FirebaseAuth = FirebaseAuth.getInstance()
+        private val auth: FirebaseAuth = FirebaseAuth.getInstance()
         val isConnected = auth.currentUser != null
 
         fun signIn(email: String, password: String, callback: (msg: FirebaseResponse) -> Unit) {
@@ -14,6 +16,7 @@ class AuthController {
 
             if (isUserInputsValid != FirebaseResponse.Success) {
                 callback(isUserInputsValid)
+                return
             }
 
             try {
@@ -25,6 +28,7 @@ class AuthController {
                         callback(FirebaseResponse.BadEmailOrPassword)
                     }
             } catch (e: Exception) {
+                Log.d("XXXXXXXXXXXXXXXXXXXXXXXXXXX-AuthController:31", "error -> $e")
                 callback(FirebaseResponse.Error)
             }
         }
@@ -34,6 +38,7 @@ class AuthController {
 
             if (isUserInputsValid != FirebaseResponse.Success) {
                 callback(isUserInputsValid)
+                return
             }
 
             try {
@@ -51,6 +56,7 @@ class AuthController {
                         }
                     }
             }catch (e: Exception) {
+                Log.d("XXXXXXXXXXXXXXXXXXXXXXXXXXX-AuthController:31", "error -> $e")
                 callback(FirebaseResponse.Error)
             }
         }
@@ -62,11 +68,11 @@ class AuthController {
         private fun validateUserInputs(email: String, password: String, username: String? = null): FirebaseResponse {
             val emailRegex = Regex("[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+")
 
-            if (password.length < 6) {
+            if (password.count() < 6) {
                 return FirebaseResponse.ToShortPassword
             } else if (username != null && username.length < 4) {
                 return FirebaseResponse.ToShortUsername
-            } else if (emailRegex.matches(email)) {
+            } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                 return FirebaseResponse.BadEmail
             }
 
