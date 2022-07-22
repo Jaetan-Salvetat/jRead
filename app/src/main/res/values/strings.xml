@@ -14,7 +14,8 @@
     <!-- Firebase Responess -->
     <string name="to_short_password">Mot de passe trop court.</string>
     <string name="to_short_username">Mot de passe trop court.</string>
-    <string name="bas_email">Email non valide.</string>
+    <string name="bad_email">Email non valide.</string>
+    <string name="bad_email_or_password">Email ou mot de passe incorrect.</string>
     <string name="auth_error">
         Une erreur est survenue.\n
         Veuillez vérifier vos informations et vôtre connexion internet.\n

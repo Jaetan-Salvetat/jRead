@@ -8,6 +8,7 @@ enum class FirebaseResponse {
     ToShortPassword,
     ToShortUsername,
     BadEmail,
+    BadEmailOrPassword,
     Error,
     Success;
 
@@ -18,7 +19,8 @@ enum class FirebaseResponse {
             return when (value) {
                 ToShortPassword -> stringResource(R.string.to_short_password)
                 ToShortUsername -> stringResource(R.string.to_short_username)
-                BadEmail -> stringResource(R.string.bas_email)
+                BadEmail -> stringResource(R.string.bad_email)
+                BadEmailOrPassword -> stringResource(R.string.bad_email_or_password )
                 Error -> stringResource(R.string.auth_error)
                 else -> ""
             }
