@@ -11,6 +11,7 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import fr.jaetan.core.controllers.AuthController
 import fr.jaetan.jread.auth.AuthScreen
 import fr.jaetan.jread.home.HomeScreen
+import fr.jaetan.jread.settings.SettingsScreen
 
 @Composable
 fun App() {
@@ -47,7 +48,14 @@ private fun NavigationComponent() {
         startDestination = "home"
     ) {
         composable("home") {
-            HomeScreen {
+            HomeScreen(
+                navController = navController
+            )
+        }
+        composable("settings") {
+            SettingsScreen(
+                navController = navController
+            ) {
                 isConnected = false
             }
         }

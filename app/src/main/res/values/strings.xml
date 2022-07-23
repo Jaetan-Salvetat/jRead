@@ -31,5 +31,9 @@
 
 
     <!-- Home -->
-    <string name="home_title">Accueil</string>
+    <string name="home_title">Mes bibliothèques</string>
+
+
+    <!-- Settings  -->
+    <string name="settings_title">Paramètres</string>
 </resources>

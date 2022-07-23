@@ -15,18 +15,9 @@ import fr.jaetan.core.controllers.AuthController
 @Composable
 fun HomeScreenContent(
     padding: PaddingValues,
-    goToAuth: () -> Unit
 ) {
     Column(
         Modifier.padding(padding).fillMaxWidth(),
     ) {
-        ElevatedButton(
-            onClick = {
-                AuthController.signOut()
-                goToAuth()
-            }
-        ) {
-            Text(text = "Disconnect")
-        }
     }
 }
