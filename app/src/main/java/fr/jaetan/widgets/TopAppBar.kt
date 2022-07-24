@@ -11,13 +11,19 @@ import androidx.compose.ui.graphics.Color
 fun TopAppBar(
     navigationBack: (() -> Unit)? = null,
     centerTitle: Boolean = false,
-    background: Color = MaterialTheme.colorScheme.background,
+    background: Color = MaterialTheme.colorScheme.primaryContainer,
+    titleColor: Color = MaterialTheme.colorScheme.onPrimaryContainer,
     title: String,
     actions: @Composable RowScope.() -> Unit = {},
 ) {
     if(centerTitle) {
         CenterAlignedTopAppBar(
-            title = { Text(text = title) },
+            title = {
+                Text(
+                    text = title,
+                    color = titleColor
+                )
+            },
             actions = actions,
             colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
                 containerColor = background
@@ -27,7 +33,8 @@ fun TopAppBar(
                     IconButton(onClick = navigationBack) {
                         Icon(
                             imageVector = Icons.Rounded.ArrowBack,
-                            contentDescription = null
+                            contentDescription = null,
+                            tint = titleColor
                         )
                     }
                 }
@@ -35,7 +42,12 @@ fun TopAppBar(
         )
     } else {
         SmallTopAppBar(
-            title = { Text(text = title) },
+            title = {
+                Text(
+                    text = title,
+                    color = titleColor
+                )
+            },
             actions = actions,
             colors = TopAppBarDefaults.smallTopAppBarColors(
                 containerColor = background
@@ -45,7 +57,8 @@ fun TopAppBar(
                     IconButton(onClick = navigationBack) {
                         Icon(
                             imageVector = Icons.Rounded.ArrowBack,
-                            contentDescription = null
+                            contentDescription = null,
+                            tint = titleColor
                         )
                     }
                 }

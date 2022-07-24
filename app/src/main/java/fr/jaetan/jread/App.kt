@@ -15,7 +15,7 @@ import fr.jaetan.jread.settings.SettingsScreen
 
 @Composable
 fun App() {
-    val statusBarColor = MaterialTheme.colorScheme.background
+    val statusBarColor = MaterialTheme.colorScheme.primaryContainer
     val systemUiController = rememberSystemUiController()
     val darkTheme = isSystemInDarkTheme()
 
