@@ -36,4 +36,6 @@
 
     <!-- Settings  -->
     <string name="settings_title">Paramètres</string>
+    <string name="disconnect">Déconnexion</string>
+    <string name="my_profile">Mon profile</string>
 </resources>
