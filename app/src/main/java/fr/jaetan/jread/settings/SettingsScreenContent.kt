@@ -23,6 +23,7 @@ import fr.jaetan.widgets.ListTile
 @Composable
 fun SettingsScreenContent(
     padding: PaddingValues,
+    goToProfile: () -> Unit,
     goToAuth: () -> Unit
 ) {
     Column(
@@ -35,7 +36,7 @@ fun SettingsScreenContent(
         ListTile(
             text = stringResource(R.string.my_profile),
             leftIcon = Icons.Rounded.AccountCircle,
-            onPressed = {},
+            onPressed = goToProfile,
         )
 
         Divider(

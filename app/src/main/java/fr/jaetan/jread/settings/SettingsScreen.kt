@@ -24,7 +24,8 @@ fun SettingsScreen(
     ) { padding ->
         SettingsScreenContent(
             padding = padding,
-            goToAuth = goToAuth
+            goToAuth = goToAuth,
+            goToProfile = { navController.navigate("profile") }
         )
     }
 }

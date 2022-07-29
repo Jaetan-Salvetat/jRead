@@ -11,6 +11,7 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import fr.jaetan.core.controllers.AuthController
 import fr.jaetan.jread.auth.AuthScreen
 import fr.jaetan.jread.home.HomeScreen
+import fr.jaetan.jread.profile.ProfileScreen
 import fr.jaetan.jread.settings.SettingsScreen
 
 @Composable
@@ -58,6 +59,9 @@ private fun NavigationComponent() {
             ) {
                 isConnected = false
             }
+        }
+        composable("profile") {
+            ProfileScreen(navController)
         }
     }
 }
