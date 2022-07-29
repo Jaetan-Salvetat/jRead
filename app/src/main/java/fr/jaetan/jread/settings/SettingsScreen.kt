@@ -5,6 +5,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
+import fr.jaetan.core.enums.Screen
 import fr.jaetan.jread.R
 import fr.jaetan.widgets.TopAppBar
 
@@ -25,7 +26,7 @@ fun SettingsScreen(
         SettingsScreenContent(
             padding = padding,
             goToAuth = goToAuth,
-            goToProfile = { navController.navigate("profile") }
+            goToProfile = { navController.navigate(Screen.Profile.route) }
         )
     }
 }

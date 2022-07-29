@@ -9,6 +9,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import fr.jaetan.core.controllers.AuthController
+import fr.jaetan.core.enums.Screen
 import fr.jaetan.jread.auth.AuthScreen
 import fr.jaetan.jread.home.HomeScreen
 import fr.jaetan.jread.profile.ProfileScreen
@@ -46,21 +47,21 @@ private fun NavigationComponent() {
 
     NavHost(
         navController = navController,
-        startDestination = "home"
+        startDestination = Screen.Home.route
     ) {
-        composable("home") {
+        composable(Screen.Home.route) {
             HomeScreen(
                 navController = navController
             )
         }
-        composable("settings") {
+        composable(Screen.Settings.route) {
             SettingsScreen(
                 navController = navController
             ) {
                 isConnected = false
             }
         }
-        composable("profile") {
+        composable(Screen.Profile.route) {
             ProfileScreen(navController)
         }
     }
